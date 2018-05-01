@@ -12,7 +12,7 @@ pipeline {
       }
     }
     stage('Checkpoint') {
-       agent none
+      agent {none}
        steps {
           checkpoint 'Checkpoint'
        }
@@ -47,10 +47,8 @@ pipeline {
   }
   post {
     aborted {
-      echo 'Why didn\'t you push my button?'
-      
+      echo 'Why didn\'t you push my button?' 
     }
-    
   }
   parameters {
     string(name: 'Name', defaultValue: 'whoever you are', description: 'Who should I say hi to?')
